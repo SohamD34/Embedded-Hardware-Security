@@ -24,20 +24,10 @@ cpu.attach_peripheral(gpio1)
 ''' 7-segment display '''
 
 display = SevenSegmentDisplay()
-display.set_segment(0, [[True, True, True, True, True], [True, False, False, False, True], [True, False, False, False, True], [True, False, False, False, True], [True, True, True, True, True]])
-display.set_segment(1, [[False, False, False, False, True], [False, False, False, False, True], [False, False, False, False, True], [False, False, False, False, True], [False, False, False, False, True]])
-display.set_segment(2, [[True, True, True, True, True], [False, False, False, False, True], [True, True, True, True, True], [True, False, False, False, False], [True, True, True, True, True]])
-display.set_segment(3, [[True, True, True, True, True], [False, False, False, False, True], [True, True, True, True, True], [False, False, False, False, True], [True, True, True, True, True]])
-display.set_segment(4, [[True, False, False, False, True], [True, False, False, False, True], [True, True, True, True, True], [False, False, False, False, True], [False, False, False, False, True]])
-display.set_segment(5, [[True, True, True, True, True], [True, False, False, False, False], [True, True, True, True, True], [False, False, False, False, True], [True, True, True, True, True]])
-display.set_segment(6, [[True, True, True, True, True], [True, False, False, False, False], [True, True, True, True, True], [True, False, False, False, True], [True, True, True, True, True]])
-display.set_segment(7, [[True, True, True, True, True], [False, False, False, False, True], [False, False, False, False, True], [False, False, False, False, True], [False, False, False, False, True]])
-display.set_segment(8, [[True, True, True, True, True], [True, False, False, False, True], [True, True, True, True, True], [True, False, False, False, True], [True, True, True, True, True]])
-display.set_segment(9, [[True, True, True, True, True], [True, False, False, False, True], [True, True, True, True, True], [False, False, False, False, True], [True, True, True, True, True]])
-
+display.reset()
+display.program()
 
 ''' Activating the clock '''
 
 clock_pulses = rectangular_clock_pulse(1, 0.5, 100)
-
-cpu.process()
+cpu.process(display, clock_pulses)
