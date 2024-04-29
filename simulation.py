@@ -30,4 +30,8 @@ display.program()
 ''' Activating the clock '''
 
 clock_pulses = rectangular_clock_pulse(1, 0.5, 100)
-cpu.process(display, clock_pulses)
+
+''' Simulation '''
+cpu.execute(['ADD 0x06 0x04 0x05', 'SUB 0x07 0x06 0x05'])
+print(cpu.instruction_memory)
+print(cpu.data_memory)
