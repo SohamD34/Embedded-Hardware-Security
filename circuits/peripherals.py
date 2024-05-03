@@ -42,4 +42,3 @@ class GPIO(Peripheral):
         print("Handling complete! Returning to main\n")
 
 
-print("hELLO")
