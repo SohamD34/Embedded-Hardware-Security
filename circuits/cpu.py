@@ -6,10 +6,9 @@ class CPU:
     def __init__(self):
         self.peripherals = []
         self.instruction_memory = ['add', 'sub', 'mul', 'div']
-        self.data_memory =  {   '0x04' : 1, '0x05' : 2,
-                                '0x06' : 3, '0x07' : 4,
-                                '0x08' : 5, '0x09' : 6,
-                                '0x0a' : 7, '0x0b' : 8,
+        self.data_memory =  {   '0x00' : 0, '0x04' : 1, '0x05' : 2,
+                                '0x06' : 3, '0x07' : 4, '0x08' : 5, 
+                                '0x09' : 6, '0x0a' : 7, '0x0b' : 8,
                                 '0x0c' : 9, '0x0d' : 10,
                                 '0x0e' : 11, '0x0f' : 12,
                                 '0x10' : 13, '0x11' : 14,
@@ -18,7 +17,7 @@ class CPU:
                                 '0x16' : 19, '0x17' : 20,
                                 '0x18' : 21, '0x19' : 22,
                                 '0x1a' : 23, '0x1b' : 24 }
-        self.current_address = '0x04'
+        self.current_address = '0x00'
 
 
 

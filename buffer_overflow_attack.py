@@ -20,26 +20,26 @@ cpu.attach_peripheral(uart2)
 cpu.attach_peripheral(gpio1)
 
 
-# ''' Simulation of instructions '''
-# cpu.execute(['add 0x06 0x04 0x05', 'sub 0x07 0x06 0x05'])
+# UART Transmission 
 
-
-# # UART Transmission 
-
-print("\nUART Transmission")
+print("UART Transmission")
 transmitted_data = uart1.handle_interrupt(cpu, rectangular_clock_pulse(1, 0.5, 10000))
-print("Transmitted data = ",cpu.data_memory[transmitted_data],"\n")
+print("Transmitted data = ", cpu.data_memory[transmitted_data],"\n")
 
 display = SevenSegmentDisplay()
 display.program()
 display.display(cpu.data_memory[transmitted_data])
 
-# # UART Reception
+
+# Buffer Overflow Attack
+
+print("\nTransmitted data address =", cpu.current_address)
+buffer_overflow(cpu)
+print("Recieved data address =", cpu.current_address)
+
+
+# UART Reception
 
 print("\nUART Reception")
-uart2.receiver(transmitted_data)
-print("Recieved data = ",uart2.received_data,"\n")
-
-display = SevenSegmentDisplay()
-display.program()
-display.display(cpu.data_memory[uart2.received_data])
+uart2.receiver(cpu.data_memory[cpu.current_address])
+print("Recieved data = ",uart2.received_data)

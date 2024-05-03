@@ -20,11 +20,7 @@ def pointer_subterfuge(cpu):
 
     func1 = all_instructions[function1_address]
     func2 = all_instructions[function2_address]
-    
-    print("Function 1: " + func1)
-    print("Function 2: " + func2)
 
     temp = getattr(cpu, func1)
     setattr(cpu, func1, getattr(cpu, func2))
     setattr(cpu, func2, temp)
-

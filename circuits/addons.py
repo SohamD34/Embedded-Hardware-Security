@@ -24,7 +24,7 @@ class SevenSegmentDisplay:
                 if row[c]:
                     print("%", end="")
                 else:
-                    print("   ", end="")
+                    print(" ", end="")
             print()
 
     def program(self):
@@ -38,7 +38,8 @@ class SevenSegmentDisplay:
         self.set_segment(7, [[True, True, True, True, True], [False, False, False, False, True], [False, False, False, False, True], [False, False, False, False, True], [False, False, False, False, True]])
         self.set_segment(8, [[True, True, True, True, True], [True, False, False, False, True], [True, True, True, True, True], [True, False, False, False, True], [True, True, True, True, True]])
         self.set_segment(9, [[True, True, True, True, True], [True, False, False, False, True], [True, True, True, True, True], [False, False, False, False, True], [True, True, True, True, True]])
-
+        print()
+        
     def reset(self):
         self.segments = [[[False]*5]*5]*10
 
